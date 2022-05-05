@@ -45,9 +45,9 @@ const AppRouter = () => {
 
       <Routes>
         <>
-          <Route path='/postView/:id' element={<Post postObj={posts} />} />
 
           <Route path='/' element = {<Home posts={posts} />}/>
+          <Route path='/:id' element={<Post posts={posts}/>} />
           
           <Route path="/postfactory" element = {<PostFactory/> } />
         

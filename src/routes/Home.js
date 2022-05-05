@@ -45,8 +45,11 @@ const Home = ({userObj, posts}) => {
               // key={post.id}
               // postObj={post}
               // // isOwner={nweet.creatorId === userObj.uid}  //생성자 아이디
-
-              <Link key={post.id} to={`/postView/${post.id}`}>{ post.title }</Link>
+              <>
+                <Link key={post.id} to={`/${post.id}`}>{ post.title }</Link>
+                <br/>
+              
+              </>
             // />
             ))}
           </div>
