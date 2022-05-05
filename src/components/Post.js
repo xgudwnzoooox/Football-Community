@@ -2,9 +2,29 @@ import React, { useState } from "react";
 import { dbService, storageService } from "fbase";
 import { doc, deleteDoc, updateDoc }from "firebase/firestore";
 import { deleteObject, ref } from "@firebase/storage";
+import { useParams } from "react-router-dom";
+
 
 const Post = ({ postObj }) => {
-  const [newPost, setNewPost] = useState(postObj.text);
+  // const [newPost, setNewPost] = useState(postObj.text);
+
+  const getPostByNo = id => {
+    // postObj.map((x)=>{
+    //   console.log(x, x.id)
+    // })
+    const array = postObj.filter(x => x.id === id);
+    if (array.length === 1) {
+      return array[0];
+    }
+    return null;
+  }
+
+  const {id} = useParams(); 
+
+  console.log(1, postObj, id)
+  postObj = getPostByNo(id);
+  console.log(2, postObj)
+  
 
   // const NweetTextRef =doc(dbService, "nweets", `${nweetObj.id}`);
   

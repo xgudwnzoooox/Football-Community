@@ -11,48 +11,47 @@ import {
   } from "firebase/firestore";
 
 import Navigation from "components/Navigation";
+import { Link } from "react-router-dom";
 
-const Home = ({userObj}) => {
-  const [posts, setPosts] = useState([]);
-  const [init, setInit] = useState(false);
+const Home = ({userObj, posts}) => {
+//   const [posts, setPosts] = useState([]);
+//   const [init, setInit] = useState(false);
 
-  useEffect(() => {
-    const q = query(collection(dbService, "posts")
-    // ,orderBy("createdAt", "desc")
-    );
+//   useEffect(() => {
+//     const q = query(collection(dbService, "posts")
+//     // ,orderBy("createdAt", "desc")
+//     );
 
-    onSnapshot(q, (snapshot) => {
-      const postArr = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
+//     onSnapshot(q, (snapshot) => {
+//       const postArr = snapshot.docs.map((doc) => ({
+//         id: doc.id,
+//         ...doc.data(),
+//       }));
 
-    setPosts(postArr);
-    });
+//     setPosts(postArr);
+//     });
 
-    setInit(true);
+//     setInit(true);
     
-  }, []);
+//   }, []);
 
   return (
     <>
-      {init ? 
       <>
         <div className="container">
           <div style={{ marginTop: 30 }}>
             {posts.map((post) => (
-              <Post
-              key={post.id}
-              postObj={post}
-              // isOwner={nweet.creatorId === userObj.uid}  //생성자 아이디
-            />
+              // <Post
+              // key={post.id}
+              // postObj={post}
+              // // isOwner={nweet.creatorId === userObj.uid}  //생성자 아이디
+
+              <Link key={post.id} to={`/postView/${post.id}`}>{ post.title }</Link>
+            // />
             ))}
           </div>
         </div>
       </>
-      : 'initializing'
-      
-      }
     
     </>
   );
