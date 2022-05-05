@@ -58,7 +58,7 @@ const Post = ({ postObj }) => {
         <>
           <h4>Title: {postObj.title},  Score: {postObj.text}</h4>
 
-          {/* {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} />} */}
+          {postObj.attachmentUrl && <img src={postObj.attachmentUrl} style = {{width : 100}} />}
           {/* {isOwner && (
             <div className = "nweet__actions">
               <span onClick={onDeleteClick}>

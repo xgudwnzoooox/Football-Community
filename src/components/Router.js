@@ -5,6 +5,9 @@ import Home from 'routes/Home';
 import Navigation from './Navigation';
 
 const AppRouter = () => {
+  const userObj = {
+    uid : 2345,
+  }
 
   return (
     <Router>
@@ -15,7 +18,7 @@ const AppRouter = () => {
           
           <Route path='/' element = {<Home/>}/>
           
-          <Route path="/postfactory" element = {<PostFactory/>} />
+          <Route path="/postfactory" element = {<PostFactory/> } />
         
         </>
       </Routes>
